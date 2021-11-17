@@ -4,6 +4,7 @@ from typing import List
 
 
 def DFSLimited(etatInitial: List[int],depth : int):
+    result = False
     closed_list = []
     possibles_moves = LifoQueue()
     possibles_moves.put("")
@@ -24,7 +25,18 @@ def DFSLimited(etatInitial: List[int],depth : int):
                 possibles_moves.put(explore)
     if(board_state == [1, 2, 3, 4, 5, 6, 7, 8, 0]):
         print_board(etatInitial, path)
+        result = True
     else:
-        print("no_solution")
+        print(" -- no solution found -- ")
+        result = False
     print(f'- number of visited nodes = {count}')
     print(f'- path length = {len(path)}')
+    return result
+
+def DFSIterative(etatInitial: List[int]):
+    i = 1
+    while not DFSLimited(etatInitial,i):
+        print(f' ((((  i = {i}  )))) ')
+        print('\n ************************** \n')
+        i+=1
+    print(f'\n =====> solution found with depth {i}')    
