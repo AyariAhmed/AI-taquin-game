@@ -7,9 +7,10 @@ This project solves the Taquin game (jeu de taquin) problem using different algo
 
 ### Insctructions
 Run the following commands to start the CLI application :
-
 ```shell
     pipenv install
     pipennv python3 main.py
 ```
+
+> Must be in the root project directory in order to create a virtual environment and install dependencies
 
