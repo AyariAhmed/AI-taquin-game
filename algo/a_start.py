@@ -27,12 +27,16 @@ def h_function2(board_state):
         if val == 0:
             continue
         if val != etatFinal[index]:
-            diff = abs(val - etatFinal[index])/3 + abs(val - etatFinal[index]) % 3
+            # project into the vertical and horizontal axe
+            diff = abs(val - etatFinal[index])/3 + abs(val - etatFinal[index])%3
             s += diff
     return s
 
 
 def AStar1(etatInitial):
+    '''
+    A* with the heuristic function 1
+    '''
     possible_moves = PriorityQueue()
     possible_moves.put((h_function1(etatInitial), ""))
     path = ""
@@ -54,6 +58,9 @@ def AStar1(etatInitial):
     print(f'- path length = {len(path)}')
 
 def AStar2(etatInitial):
+    '''
+    A* with the heuristic function 2
+    '''
     possible_moves = PriorityQueue()
     possible_moves.put((h_function2(etatInitial), ""))
     path = ""
