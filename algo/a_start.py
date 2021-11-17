@@ -68,7 +68,8 @@ def AStar2(etatInitial):
         for move in ["L", "R", "U", "D"]:
             acc_moves = path[1] + move
             if is_valid_move(board_state.index(0), move):
-                possible_moves.put((h_function2(new_state(etatInitial, acc_moves))+len(acc_moves)-1, acc_moves))
+                # we add the tuple (h+g,path) tuple to the possible_moves priority queue
+                possible_moves.put((h_function2(new_state(etatInitial, acc_moves))+(len(acc_moves)-1), acc_moves))
     print_board(etatInitial, path[1])
 
     print(f'- number of visited nodes = {count}')
